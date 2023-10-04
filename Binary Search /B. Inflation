@@ -1,0 +1,68 @@
+Problem Link : https://codeforces.com/contest/1476/problem/B
+
+
+//The code 
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+//Omar Ja//
+bool check (vector <ll > & v , ll k , ll mid )
+{
+    ll sum = v[0] + mid ;
+    for( ll i = 1 ; i < v.size() ; i++ )
+    {
+        if(v[i]> sum * k /100)
+        {
+            return false ;
+        }
+        sum+=v[i];
+        
+    }
+    
+    return true ;
+    
+}
+void dota()
+{
+    ll n , k ; 
+    cin >> n >> k ;
+    vector < ll > v (n) ;
+    for( ll i = 0 ; i < n ; i++ )
+    {
+        cin >> v[i] ;
+    }
+    ll l = 0 ;
+    ll r = 1e14 ;
+    ll temp = -1 ;
+    while( l <= r )
+    {
+        ll mid = l + (r - l ) / 2 ;
+        if ( check(v , k , mid) )
+        {
+             
+            r = mid - 1 ;
+        }
+        else
+        {
+            l = mid + 1 ;
+            temp = mid ;          
+        }
+    }
+    cout << l << endl ;
+    
+}
+
+
+int main (){
+  ios_base::sync_with_stdio (false);
+  cin.tie(0);
+  ll t;
+  cin >> t;
+  while (t--)
+   
+      dota ();
+   
+}
