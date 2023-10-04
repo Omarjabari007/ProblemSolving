@@ -1,0 +1,133 @@
+Problem Link : https://codeforces.com/contest/1873/problem/E
+
+
+// The code   with C++
+
+
+
+//omar jabari Code;;;;☕
+//--------------------Dark souls-----------------//
+ 
+#include <iostream>
+#include<map>
+#include <unordered_map>
+#include<limits.h>
+#include<set>
+#include<vector>
+#include<string>
+#include <iomanip>
+
+#include<cmath>
+#include<algorithm>
+#include<queue>
+#define tu transform(s1.begin(), s1.end(), s1.begin(), ::toupper);
+#define tl transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
+#define not_less_than(v, n) lower_bound(v.begin(), v.end(), n)                   // n >= return values not least than n
+#define not_more_than(v, n) lower_bound(v.rbegin(), v.rend(), n, greater<ll>()) // n <=
+#define more_than(v, n) upper_bound(v.begin(), v.end(), n)                       // return values greatest than n 
+#define less_than(v, n) upper_bound(v.rbegin(), v.rend(), n, greater<ll>())     // n >
+#define endl '\n'
+
+#define sps sort(v.begin(),v.end(), [](const pair<long long, long long> &a, const pair<long long, long long> &b) {return a.second < b.second;});
+
+#define sor sort(v.begin(),v.end());
+#define dark {ios_base::sync_with_stdio(false);}
+#define souls {cin.tie(NULL);}
+#define game  {cout.tie(0);}
+
+#define ll long long
+#define pb push_back
+#define no "NO"
+#define yes "YES"
+//Ring
+using namespace std;
+void findPermutations(string str) {
+    sort(str.begin(), str.end());
+
+    do {
+      cout << str << endl;
+    } while (next_permutation(str.begin(), str.end()));
+}
+
+// to change string into number use stoi 
+
+// to change string into long long use stoll i think 
+ ll gcd(ll a, ll b) {
+	if (b == 0) return a;
+	else return gcd(b, a % b);
+}
+ll lcm(ll a, ll b) {
+	return (a / gcd(a, b)) * b;
+}
+ //lower case from 97 to 122 
+// upper case from 65 to 90
+
+bool check(vector<ll> &v , ll x , ll mid)
+{
+    ll cnt=0;
+    for(ll i=0;i<v.size();i++)
+    {
+        if(v[i]<=mid)
+        {
+            cnt+=(mid-v[i]);
+        }
+    }
+    if(cnt<=x)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
+    
+    
+}
+
+
+void solve()
+{
+    ll n , x; cin>> n >> x; 
+    vector<ll> v(n);
+    for(ll i=0;i<n;i++)
+    {
+         cin>>v[i];
+    }
+    ll l=0; ll r=INT_MAX;
+            ll temp=0;
+
+    while(l<=r)
+    {
+        ll mid=l+(r-l)/2;
+        if(check(v,x,mid))
+        {
+            temp=mid;
+            l=mid+1;
+        }
+        else
+        {
+            r=mid-1;
+        }
+    }
+    cout<<temp<<endl;
+    
+    
+    
+    
+    
+    
+    
+    
+}
+int32_t main()
+{
+dark
+souls
+game
+  ll t;
+ cin >> t;
+  while (t--)
+        solve();
+    return 0;
+}
